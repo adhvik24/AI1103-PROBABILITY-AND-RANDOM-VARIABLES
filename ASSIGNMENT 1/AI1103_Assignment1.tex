@@ -134,85 +134,85 @@ https://github.com/adhvik24/AI1103-PROBABILITY-AND-RANDOM-VARIABLES/blob/main/AS
 \end{lstlisting}
 \section{Problem 6.15}
 Given two independent events A and B such
-that P(A) = 0.3, P(B) = 0.6. Find
+that \pr{A} = 0.3, \pr{B} = 0.6. Find
 \begin{enumerate}[label={\roman*)}]
-    \item P(A and B)
-    \item P(A and not B)
-    \item P(A or B)
-    \item P(neither A nor B)
+    \item \pr{A\,and\,B}
+    \item \pr{A\, and\, not\, B}
+    \item \pr{A \,or\, B}
+    \item \pr{neither\, A \,nor\, B}
 \end{enumerate}
 \section{Solution}
 \begin{enumerate}[label={\roman*)}]
 \item
 Since the events A and B are independent events, by definition
 \begin{align}
-    P(A\, and\, B) = P(AB)= P(A)P(B)\label{a}
+    \pr{A\, and\, B} = \pr{AB}= \pr{A}\pr{B}\label{a}
 \end{align}
-On substituting the values of P(A), P(B) in \eqref{a}, we get
+On substituting the values of \pr{A},\pr{B} in \eqref{a}, we get
 \begin{align}
-    P(A\, and\, B) &= P(A)P(B)\\
+    \pr{A\, and\, B} &= \pr{A}\pr{B}\\
     &= (0.3)(0.6)\\
-    \implies P(A\, and\, B)&=0.18
+    \implies \pr{A\, and\, B}&=0.18
 \end{align}
 \item
 As the events A and B are independent, then A and B' are also independent.
 \begin{align}   
-\implies P(A\, and\,not\, B) &=P(AB')\\
-&= P(A)P(B')\\
-\therefore P(A\, and\,not\, B) &= P(A)P(B')\label{b}
+    \implies \pr{A\,and\,not\,B} &=\pr{AB'}\\
+&= \pr{A}\pr{B'}\\
+\therefore \pr{A\,and\,not\,B} &= \pr{A}\pr{B'}\label{b}
 \end{align}
 And we know that,
 \begin{align}
-    P(B')=1-P(B)\label{c}
+    \pr{B'}=1-\pr{B}\label{c}
 \end{align}
 Using \eqref{c} in \eqref{b} we will get,
 \begin{align}
-    P(A\, and\,not\, B) &=P(AB') \\
-    &= P(A)P(B')\\
-    P(A\, and\,not\, B)&= P(A)(1-P(B))\label{d}
+   \pr{A\,and\,not\,B} &=\pr{AB'}\\
+&= \pr{A}\pr{B'}\\
+    \pr{A\,and\,not\,B} &= \pr{A}(1-\pr{B})\label{d}
 \end{align}
-On substituting the values of P(A), P(B) in \eqref{d}, we get
+On substituting the values of \pr{A},\pr{B} in \eqref{d}, we get
 \begin{align}
-    P(A\, and\, not\, B) &= (0.3)(1-0.6)\\
+    \pr{A\,and\,not\,B} &= 0.3(1-0.6)\\
     &= (0.3)(0.4)\\
-    \implies P(A\, and\, not\, B)&= 0.12
+    \implies \pr{A\,and\,not\,B}&= 0.12
 \end{align}
 \item
 \begin{align}
-    P(A\,or\,B) =P(A\,+\,B)\label{e}
+    \pr{A\,or\,B} =\pr{A\,+\,B}\label{e}
 \end{align}
 We know that,
 \begin{align}
-    P(A\, +\, B) = P(A) + P(B) -P(AB)\label{f}
+    \pr{A\,+\,B} = \pr{A} + \pr{B} -\pr{AB}\label{f}
 \end{align}
 As events A and B are independent events,
 \begin{align}
-    P(AB)=P(A)P(B)\label{g}
+    \pr{AB}=\pr{A}\pr{B}\label{g}
 \end{align}
 Using \eqref{g} and \eqref{f} in \eqref{e}, We get
 \begin{align}
-    P(A\,or\,B) = P(A) + P(B) - P(A)P(B)\label{h}
+    \pr{A\,+\,B} = \pr{A} + \pr{B} -\pr{A}\pr{B}\label{h}
 \end{align}
-On substituting the values of P(A), P(B) in \eqref{h}, we get
+On substituting the values of \pr{A},\pr{B} in \eqref{h}, we get
 \begin{align}
-    P(A\,or\,B) &= 0.3 + 0.6 -(0.3)(0.6)\\
+    \pr{A\,or\,B} &= 0.3 + 0.6 -(0.3)(0.6)\\
     &= 0.9-0.18\\
-    \implies P(A\,or\,B) &= 0.72\label{i}
+    \implies \pr{A\,or\,B} &= 0.72\label{i}
 \end{align}
 \item
 \begin{align}
-    P(neither\, A\, nor\, B) &= P(A'B')\\
-    &=P((A+B)')\\
-    P(neither\, A\, nor\, B)&=1-P(A+B)\label{j}
+    \pr{neither\, A\, nor\, B} &= \pr{A'B'}\\
+    &=\pr{(A\,+\,B)'}\\
+    \pr{neither\, A\, nor\, B}&=1-\pr{A\,+\,B}\label{j}
 \end{align}
 From \eqref{i},
 \begin{align}
-    P(A\,or\,B) =P(A\,+\,B)=0.72\label{k}
+    \pr{A\,or\,B} =\pr{A\,+\,B}=0.72\label{k}
 \end{align}
 Using \eqref{k} in \eqref{j}, We get
 \begin{align}
-    P(neither\, A\, nor\, B)&=1-0.72\\
-   \implies P(neither\, A\, nor\, B)&=0.28
+    \pr{neither\, A\, nor\, B}&=1-0.72\\
+   \implies \pr{neither\, A\, nor\, B}&=0.28
 \end{align}
 \end{enumerate}
 \end{document}

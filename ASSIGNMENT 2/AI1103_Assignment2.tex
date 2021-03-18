@@ -188,20 +188,37 @@ Using values of $a$ and $b$ in \eqref{a}, we get
 \end{align}
 \begin{figure}[htp]
     \centering
-    \includegraphics[width=8cm]{assign2.png}
+    \includegraphics[width=8.5cm]{assign2.png}
 \end{figure}
 
-Now we have to find \pr{X<0.5},
+Let $F_X(x)$ be the cumulative distribution function of random variable X.
 \begin{align}
-\pr{X<0.5} = \int_{-\infty}^{0.5}{\fn{x}}\,dx\label{g}
+    F_X(x)=\int_{-\infty}^x \fn{x} dx
 \end{align}
-Using \eqref{f} in \eqref{g}
+\newpage Using \eqref{f},
+\\Cumulative distribution function (CDF) of random variable X is,
 \begin{align}
-    \pr{X<0.5} &= \int_{0}^{0.5}{2x}\,dx\\
-    &= \left[x^2\right]_0^{0.5}\\
-    &= (0.5)^2-0\\
-  \implies  \pr{X<0.5} &= 0.25
+F_X(x)= \pr{X<x}
+= 
+\begin{cases}
+0 & x\leq0\\
+x^2 & 0<x<1
+\\
+1 & x\geq1\label{g}\\
+\end{cases}
 \end{align}
-
+\begin{figure}[htp]
+    \centering
+    \includegraphics[width=8.5cm]{assign2_1.png}
+\end{figure}
+\\Now we have to find \pr{X<0.5},
+\begin{align}
+\pr{X<0.5} = \int_{-\infty}^{0.5}{\fn{x}}\,dx\label{h}
+\end{align}
+Using  \eqref{g},
+\begin{align}
+    \pr{X<0.5} &= (0.5)^2\\
+  \implies \pr{X<0.5} &= 0.25
+\end{align}
 
 \end{document}

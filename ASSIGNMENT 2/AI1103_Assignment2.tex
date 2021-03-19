@@ -195,7 +195,27 @@ Let $F_X(x)$ be the cumulative distribution function of random variable X.
 \begin{align}
     F_X(x)=\int_{-\infty}^x \fn{x} dx\label{x}
 \end{align}
-\newpage Using \eqref{f} in \eqref{x},
+\newpage 
+$F_X(x)$ can be obtained from the uniform distribution of a random variable U,\\ Such that $0<U<1$ and U=$X^2$. 
+\\As for random variable X also $\implies$ $0 < F_X(x) < 1\, $\\for $0<x<1$ .
+\\This similarity between U and $F_X(x)$ is used to generate the random variable X from U.
+\begin{align}
+    F_X(x)&= \pr{X<x}\\
+    &=\pr{\sqrt{U}<x}\\
+    &=\pr{U<x^2}\\
+    &=F_U(x^2)\label{y}
+\end{align}
+From uniform distribution,
+\begin{align}
+    F_U(x)=
+    \begin{cases}
+0 & x\leq0\\
+x & 0<x<1
+\\
+1 & x\geq1\label{z}\\
+\end{cases}
+\end{align}
+Using \eqref{z} in \eqref{y},
 \\Cumulative distribution function (CDF) of random variable X is,
 \begin{align}
 F_X(x)= \pr{X<x}
@@ -211,11 +231,8 @@ x^2 & 0<x<1
     \centering
     \includegraphics[width=8.5cm]{assign2_1.png}
 \end{figure}
-\\Now we have to find \pr{X<0.5},
-\begin{align}
-\pr{X<0.5} = \int_{-\infty}^{0.5}{\fn{x}}\,dx\label{h}
-\end{align}
-Using  \eqref{g} in \eqref{h},
+\\Now we have to find \pr{X<0.5},\\
+Using  \eqref{g},
 \begin{align}
     \pr{X<0.5} &= (0.5)^2\\
   \implies \pr{X<0.5} &= 0.25

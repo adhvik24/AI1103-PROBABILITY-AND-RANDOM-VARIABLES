@@ -157,7 +157,7 @@ We know that the total probability is one,
 Using \eqref{a} in \eqref{b},
 \begin{align}
     \int_{0}^{1}{(a+bx)\,dx} = 1\\
-    \left[ax+\frac{bx^2}{2}\right]_0^1=1\\
+    \sbrak{ax+\frac{bx^2}{2}}_0^1=1\\
     \left(a+\frac{b}{2}\right)-0=1\\
     \implies a+\frac{b}{2}=1 \label{c}
 \end{align}
@@ -170,12 +170,14 @@ Using $\e{X}=\frac{2}{3}$ and \eqref{a} in \eqref{d}, we get
 \begin{align}
      \frac{2}{3}&=\int_{0}^{1}x(a+bx)\,dx\\
      &=\int_{0}^{1} ax+bx^2\,dx\\
-     &= \left[\frac{ax^2}{2}+\frac{bx^3}{3}\right]_0^1\\
+     &= \sbrak{\frac{ax^2}{2}+\frac{bx^3}{3}}_0^1\\
      &= \frac{a}{2}+\frac{b}{3}-0\\
      \implies\frac{a}{2}+\frac{b}{3}&=\frac{2}{3}\label{e}
 \end{align}
-By solving \eqref{c} and \eqref{e}, we get \\
-$$a\, =\, 0 \,\,and\,\, b\, =\, 2.$$
+By solving \eqref{c} and \eqref{e}, we get 
+\begin{align}
+    a\, =\, 0 \,\,and\,\, b\, =\, 2.
+\end{align}
 Using values of $a$ and $b$ in \eqref{a}, we get
 \begin{align}
 \fn{x}
@@ -188,17 +190,22 @@ Using values of $a$ and $b$ in \eqref{a}, we get
 \end{align}
 \begin{figure}[htp]
     \centering
-    \includegraphics[width=8.5cm]{assign2.png}
+    \includegraphics[width=\columnwidth]{assign2.png}
 \end{figure}
 
 Let $F_X(x)$ be the cumulative distribution function of random variable X.
 \begin{align}
     F_X(x)=\int_{-\infty}^x \fn{x} dx\label{x}
 \end{align}
-\newpage 
-$F_X(x)$ can be obtained from the uniform distribution of a random variable U,\\ Such that $0<U<1$ and U=$X^2$. 
-\\As for random variable X also $\implies$ $0 < F_X(x) < 1\, $\\for $0<x<1$ .
-\\This similarity between U and $F_X(x)$ is used to generate the random variable X from U.
+$F_X(x)$ can be obtained from the uniform distribution of a random variable U on (0,1) and let U=$X^2$. 
+\begin{align}
+    0 < U < 1
+\end{align}
+As for random variable X also,
+\begin{align}
+    0 < F_X(x) < 1
+\end{align}
+This similarity between U and $F_X(x)$ is used to generate the random variable X from U.
 \begin{align}
     F_X(x)&= \pr{X<x}\\
     &=\pr{\sqrt{U}<x}\\
@@ -206,6 +213,10 @@ $F_X(x)$ can be obtained from the uniform distribution of a random variable U,\\
     &=F_U(x^2)\label{y}
 \end{align}
 From uniform distribution,
+\begin{figure}[htp]
+    \centering
+    \includegraphics[width=\columnwidth]{assign2_2.png}
+\end{figure}
 \begin{align}
     F_U(x)=
     \begin{cases}
@@ -215,7 +226,11 @@ x & 0<x<1
 1 & x\geq1\label{z}\\
 \end{cases}
 \end{align}
-Using \eqref{z} in \eqref{y},
+\begin{figure}[htp]
+    \centering
+    \includegraphics[width=\columnwidth]{assign2_1.png}
+\end{figure}
+\\Using \eqref{z} in \eqref{y},
 \\Cumulative distribution function (CDF) of random variable X is,
 \begin{align}
 F_X(x)= \pr{X<x}
@@ -227,11 +242,7 @@ x^2 & 0<x<1
 1 & x\geq1\label{g}\\
 \end{cases}
 \end{align}
-\begin{figure}[htp]
-    \centering
-    \includegraphics[width=8.5cm]{assign2_1.png}
-\end{figure}
-\\Now we have to find \pr{X<0.5},\\
+Now we have to find \pr{X<0.5},\\
 Using  \eqref{g},
 \begin{align}
     \pr{X<0.5} &= (0.5)^2\\

@@ -148,7 +148,6 @@ a+bx & 0<x<1
 \end{align}
 If the expected value \e{X} = $\frac{2}{3}$
 , then \pr{X <0.5} is..........
-
 \section{Solution}
 We know that the total probability is one,
 \begin{equation}
@@ -188,12 +187,14 @@ Using values of $a$ and $b$ in \eqref{a}, we get
 0 & otherwise\label{f}\\
 \end{cases}
 \end{align}
-\begin{figure}[htp]
+\begin{figure}[ht]
     \centering
     \includegraphics[width=\columnwidth]{assign2.png}
+    \caption{Probability Density Function (PDF) of X}
+    \label{Figure_1}
 \end{figure}
-
-Let $F_X(x)$ be the cumulative distribution function of random variable X.
+The graph of PDF of X is \ref{Figure_1}
+\par Let $F_X(x)$ be the cumulative distribution function of random variable X.
 \begin{align}
     F_X(x)=\int_{-\infty}^x \fn{x} dx\label{x}
 \end{align}
@@ -213,9 +214,12 @@ This similarity between U and $F_X(x)$ is used to generate the random variable X
     &=F_U(x^2)\label{y}
 \end{align}
 From uniform distribution,
-\begin{figure}[htp]
+\\The graph of Probability Density Function (PDF) of U is \ref{Figure_2}
+\begin{figure}[ht]
     \centering
     \includegraphics[width=\columnwidth]{assign2_2.png}
+    \caption{Probability Density Function (PDF) of U}
+    \label{Figure_2}
 \end{figure}
 \begin{align}
     F_U(x)=
@@ -226,9 +230,11 @@ x & 0<x<1
 1 & x\geq1\label{z}\\
 \end{cases}
 \end{align}
-\begin{figure}[htp]
+\begin{figure}[ht]
     \centering
     \includegraphics[width=\columnwidth]{assign2_1.png}
+    \caption{Cumulative Density Function (CDF)}
+    \label{Figure_3}
 \end{figure}
 \\Using \eqref{z} in \eqref{y},
 \\Cumulative distribution function (CDF) of random variable X is,
@@ -242,11 +248,10 @@ x^2 & 0<x<1
 1 & x\geq1\label{g}\\
 \end{cases}
 \end{align}
-Now we have to find \pr{X<0.5},\\
-Using  \eqref{g},
+The graph of Cumulative distribution function (CDF) of random variable X is \ref{Figure_3}\\
+Now we have to find \pr{X<0.5},Using  \eqref{g},
 \begin{align}
     \pr{X<0.5} &= (0.5)^2\\
   \implies \pr{X<0.5} &= 0.25
 \end{align}
-
 \end{document}

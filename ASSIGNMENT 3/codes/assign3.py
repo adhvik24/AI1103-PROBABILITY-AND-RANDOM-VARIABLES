@@ -12,8 +12,8 @@ for i in range (sim_len):
      count+=1
   sim_prob=count/sim_len
   the_prob=1/36
-print("prob by sim = ",sim_prob)
-print("the_prob=",the_prob)
+print("probability by simulation = ",sim_prob)
+print("theoritical probability=",the_prob)
 data1 = {'theoritical probability':the_prob, 'simulated probability':sim_prob}
 prob_type = list(data1.keys())
 prob = list(data1.values())

@@ -41,3 +41,4 @@ plt.xlabel('$n$')
 plt.ylabel('$p_{X}(n)$')
 plt.legend()
 plt.grid()# minor
+print("Therefore simulations are close to analysis")

@@ -133,28 +133,30 @@ Then $\mean{Y|X=3}$ is equal to
 Probability mass function of a trinomial distribution is
 \begin{multline}
    \p{x}{y} \\=\brak{\frac{7!}{x!y!(7-x-y)!}}(0.6)^x(0.2)^y(0.2)^{7-x-y}\\
-    =\brak{\frac{7!}{x!(7-x)!}\frac{(7-x)!}{y!(7-x-y)!}}(0.6)^x(0.2)^y(0.2)^{7-x-y}\\
-    \p{x}{y}=\comb{7}{x}\comb{7-x}{y}(0.6)^x(0.2)^y(0.2)^{7-x-y}\label{1}
+  \nonumber  =\brak{\frac{7!}{x!(7-x)!}\frac{(7-x)!}{y!(7-x-y)!}}(0.6)^x(0.2)^y(0.2)^{7-x-y}
 \end{multline}
+\begin{equation}
+    \p{x}{y}=\comb{7}{x}\comb{7-x}{y}(0.6)^x(0.2)^y(0.2)^{7-x-y}\label{1}
+\end{equation}
 Using \eqref{1}, $\q{x}$ is 
 \begin{align}
-   \nonumber \q{x}&=\comb{7}{x}(0.6)^x\,\Sigma_{y=0}^{7-x}\, \comb{7-x}{y} (0.2)^y(0.2)^{7-x-y} \\
+   \nonumber \q{x}&=\sum_{y=0}^{7-x} \p{x}{y}\\
+  \nonumber &=\comb{7}{x}(0.6)^x\,\sum_{y=0}^{7-x}\, \comb{7-x}{y} (0.2)^y(0.2)^{7-x-y} \\
   \nonumber  &=\comb{7}{x}(0.6)^x\,{(0.4)^{7-x}}\\
     \q{x}&=\comb{7}{x}(0.6)^x\,{(0.4)^{7-x}}\label{2}
 \end{align}
 We have to find $\mean{Y|X=3}$ ,
 \begin{align}
-    \mean{Y|X=3}&=\Sigma_{y=0}^4 \: y P(Y=y|X=3)\\
-    &=\Sigma_{y=0}^4 y   \frac{P(Y=y\cap X=3)}{P(X=3)}\\
-    \mean{Y|X=3}&=\Sigma_{y=0}^4 y   \frac{ \p{3}{y}}{P(X=3)} \label{3}
+    \mean{Y|X=3}&=\sum_{y=0}^4 \: y P(Y=y|X=3)\\
+    \mean{Y|X=3}&=\sum_{y=0}^4 y \brak{  \frac{ \p{3}{y}}{P(X=3)} }\label{3}
 \end{align}
-Using \eqref{1} and \eqref{2} in \eqref{3},
+By taking X=3 in \eqref{1} and \eqref{2}  to use in \eqref{3},
 \begin{align}
-   \nonumber \mean{Y|X=3}&=\Sigma_{y=0}^4 y   \frac{ \p{3}{y}}{P(X=3)}\\
-  \nonumber  &=\Sigma_{y=0}^4 y   \brak{\frac{\comb{7}{3}\comb{4}{y}(0.6)^3(0.2)^y(0.2)^{4-y}}{\comb{7}{3}(0.6)^3\,{(0.4)^{4}}}}\\
- \nonumber &=\Sigma_{y=0}^4 y   \brak{\frac{\comb{4}{y}(0.2)^{4}}{{(0.4)^{4}}}}\\
- &=\Sigma_{y=0}^4 {\frac{y(\comb{4}{y})}{{16}}}\\
-  \mean{Y|X=3}&=\frac{1}{16}\Sigma_{y=0}^4\, {y(\comb{4}{y})}=2
+   \nonumber \mean{Y|X=3}&=\sum_{y=0}^4 y \brak{ \frac{ \p{3}{y}}{P(X=3)}}\\
+  \nonumber  &=\sum_{y=0}^4 y   \brak{\frac{\comb{7}{3}\comb{4}{y}(0.6)^3(0.2)^y(0.2)^{4-y}}{\comb{7}{3}(0.6)^3\,{(0.4)^{4}}}}\\
+ \nonumber &=\sum_{y=0}^4 y   \brak{\frac{\comb{4}{y}(0.2)^{4}}{{(0.4)^{4}}}}\\
+ &=\sum_{y=0}^4 {\frac{y(\comb{4}{y})}{{16}}}\\
+  \mean{Y|X=3}&=\frac{1}{16}\sum_{y=0}^4\, {y(\comb{4}{y})}=2
 \end{align}
 Therefore the value of $\mean{Y|X=3}=2$.
 \end{document}

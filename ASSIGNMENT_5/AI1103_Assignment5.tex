@@ -155,7 +155,14 @@ By taking X=3 in \eqref{1} and \eqref{2}  to use in \eqref{3},
    \nonumber \mean{Y|X=3}&=\sum_{y=0}^4 y \brak{ \frac{ \p{3}{y}}{P(X=3)}}\\
   \nonumber  &=\sum_{y=0}^4 y   \brak{\frac{\comb{7}{3}\comb{4}{y}(0.6)^3(0.2)^y(0.2)^{4-y}}{\comb{7}{3}(0.6)^3\,{(0.4)^{4}}}}\\
  \nonumber &=\sum_{y=0}^4 y   \brak{\frac{\comb{4}{y}(0.2)^{4}}{{(0.4)^{4}}}}\\
- &=\sum_{y=0}^4 {\frac{y(\comb{4}{y})}{{16}}}\\
+ \mean{Y|X=3}&=\sum_{y=0}^4 {\frac{y(\comb{4}{y})}{{16}}}\label{4}
+ \end{align}
+ We know that,
+ \begin{align}
+     \comb{n}{r} = \frac{n}{r}\brak{\comb{n-1}{r-1}}\label{5}
+ \end{align}
+ Using \eqref{5} in \eqref{4},
+ \begin{align}
   \mean{Y|X=3}&=\frac{1}{16}\sum_{y=0}^4\, {y(\comb{4}{y})}\\
   &=\frac{1}{16}\sum_{y=1}^{4} y\brak{\frac{4}{y}}(\comb{3}{y-1})\\
   &=\frac{1}{4}\sum_{k=0}^{3}(\comb{3}{k})\\

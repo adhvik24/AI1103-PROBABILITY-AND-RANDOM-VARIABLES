@@ -130,7 +130,7 @@ Consider the trinomial distribution with the probability mass function
 where $x\geq0 , y\geq0 \;and\; {x+y}\leq7$.
 Then $\mean{Y|X=3}$ is equal to
 \section{SOLUTION}
-Probability mass function of a trinomial distribution is
+Probability mass function of a trinomial  distribution is :
 \begin{multline}
    \p{x}{y} \\=\brak{\frac{7!}{x!y!(7-x-y)!}}(0.6)^x(0.2)^y(0.2)^{7-x-y}\\
   \nonumber  =\brak{\frac{7!}{x!(7-x)!}\frac{(7-x)!}{y!(7-x-y)!}}(0.6)^x(0.2)^y(0.2)^{7-x-y}
@@ -156,7 +156,11 @@ By taking X=3 in \eqref{1} and \eqref{2}  to use in \eqref{3},
   \nonumber  &=\sum_{y=0}^4 y   \brak{\frac{\comb{7}{3}\comb{4}{y}(0.6)^3(0.2)^y(0.2)^{4-y}}{\comb{7}{3}(0.6)^3\,{(0.4)^{4}}}}\\
  \nonumber &=\sum_{y=0}^4 y   \brak{\frac{\comb{4}{y}(0.2)^{4}}{{(0.4)^{4}}}}\\
  &=\sum_{y=0}^4 {\frac{y(\comb{4}{y})}{{16}}}\\
-  \mean{Y|X=3}&=\frac{1}{16}\sum_{y=0}^4\, {y(\comb{4}{y})}=2
+  \mean{Y|X=3}&=\frac{1}{16}\sum_{y=0}^4\, {y(\comb{4}{y})}\\
+  &=\frac{1}{16}\sum_{y=1}^{4} y\brak{\frac{4}{y}}(\comb{3}{y-1})\\
+  &=\frac{1}{4}\sum_{k=0}^{3}(\comb{3}{k})\\
+  &=\frac{1}{4}(1+1)^3=\frac{1}{4}(8)\\
+  \mean{Y|X=3}&=2
 \end{align}
 Therefore the value of $\mean{Y|X=3}=2$.
 \end{document}

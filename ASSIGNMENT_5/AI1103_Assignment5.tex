@@ -89,8 +89,6 @@ columns=fullflexible
 \newtheorem{rem}{Remark}
 \newcommand{\sgn}{\mathop{\mathrm{sgn}}}
 \newcommand{\comb}[2]{{}^{#1}\mathrm{C}_{#2}}
-\newcommand{\p}[2]{P\left(X={#1} , Y={#2}\right)}
-\newcommand{\q}[1]{P\left(X={#1}\right)}
 \providecommand{\abs}[1]{\vert#1\vert}
 \providecommand{\res}[1]{\Res\displaylimits_{#1}} 
 \providecommand{\norm}[1]{\lVert#1\rVert}
@@ -125,34 +123,34 @@ https://github.com/adhvik24/AI1103-PROBABILITY-AND-RANDOM-VARIABLES/tree/main/AS
 \section{GATE 2019 (ST) , Q.45 (statistics section)}
 Consider the trinomial distribution with the probability mass function 
 \begin{multline}
-    \nonumber \p{x}{y}\\=\brak{\frac{7!}{x!y!(7-x-y)!}}(0.6)^x(0.2)^y(0.2)^{7-x-y}
+    \nonumber \pr{X=x,Y=y}\\=\brak{\frac{7!}{x!y!(7-x-y)!}}(0.6)^x(0.2)^y(0.2)^{7-x-y}
 \end{multline}
 where $x\geq0 , y\geq0 \;and\; {x+y}\leq7$.
 Then $\mean{Y|X=3}$ is equal to
 \section{SOLUTION}
 Probability mass function of a trinomial  distribution is :
 \begin{multline}
-   \p{x}{y} \\=\brak{\frac{7!}{x!y!(7-x-y)!}}(0.6)^x(0.2)^y(0.2)^{7-x-y}\\
+   \pr{X=x,Y=y} \\=\brak{\frac{7!}{x!y!(7-x-y)!}}(0.6)^x(0.2)^y(0.2)^{7-x-y}\\
   \nonumber  =\brak{\frac{7!}{x!(7-x)!}\frac{(7-x)!}{y!(7-x-y)!}}(0.6)^x(0.2)^y(0.2)^{7-x-y}
 \end{multline}
 \begin{equation}
-    \p{x}{y}=\comb{7}{x}\comb{7-x}{y}(0.6)^x(0.2)^y(0.2)^{7-x-y}\label{1}
+    \pr{X=x,Y=y}=\comb{7}{x}\comb{7-x}{y}(0.6)^x(0.2)^y(0.2)^{7-x-y}\label{1}
 \end{equation}
-Using \eqref{1}, $\q{x}$ is 
+Using \eqref{1}, $\pr{X=x}$ is 
 \begin{align}
-   \nonumber \q{x}&=\sum_{y=0}^{7-x} \p{x}{y}\\
+   \nonumber \pr{X=x}&=\sum_{y=0}^{7-x} \pr{X=x,Y=y}\\
   \nonumber &=\comb{7}{x}(0.6)^x\,\sum_{y=0}^{7-x}\, \comb{7-x}{y} (0.2)^y(0.2)^{7-x-y} \\
   \nonumber  &=\comb{7}{x}(0.6)^x\,{(0.4)^{7-x}}\\
-    \q{x}&=\comb{7}{x}(0.6)^x\,{(0.4)^{7-x}}\label{2}
+    \pr{X=x}&=\comb{7}{x}(0.6)^x\,{(0.4)^{7-x}}\label{2}
 \end{align}
 We have to find $\mean{Y|X=3}$ ,
 \begin{align}
-    \mean{Y|X=3}&=\sum_{y=0}^4 \: y P(Y=y|X=3)\\
-    \mean{Y|X=3}&=\sum_{y=0}^4 y \brak{  \frac{ \p{3}{y}}{P(X=3)} }\label{3}
+    \mean{Y|X=3}&=\sum_{y=0}^4 \: y \pr{Y=y|X=3}\\
+    \mean{Y|X=3}&=\sum_{y=0}^4 y \brak{  \frac{ \pr{X=3,Y=y}}{\pr{X=3}} }\label{3}
 \end{align}
 By taking X=3 in \eqref{1} and \eqref{2}  to use in \eqref{3},
 \begin{align}
-   \nonumber \mean{Y|X=3}&=\sum_{y=0}^4 y \brak{ \frac{ \p{3}{y}}{P(X=3)}}\\
+   \nonumber \mean{Y|X=3}&=\sum_{y=0}^4 y \brak{ \frac{ \pr{X=3,Y=y}}{\pr{X=3}}}\\
   \nonumber  &=\sum_{y=0}^4 y   \brak{\frac{\comb{7}{3}\comb{4}{y}(0.6)^3(0.2)^y(0.2)^{4-y}}{\comb{7}{3}(0.6)^3\,{(0.4)^{4}}}}\\
  \nonumber &=\sum_{y=0}^4 y   \brak{\frac{\comb{4}{y}(0.2)^{4}}{{(0.4)^{4}}}}\\
  \mean{Y|X=3}&=\sum_{y=0}^4 {\frac{y(\comb{4}{y})}{{16}}}\label{4}

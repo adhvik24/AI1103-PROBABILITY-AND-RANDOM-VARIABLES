@@ -140,22 +140,29 @@ two decimal places).
 \section{SOLUTION}
 Let X be the normal R.V denoting the required amount of stock of customer demand over the lead time. 
 
-Let $X_1$ be the normal R.V denoting daily customer demand with 
-\\Mean of $X_1$:
-\begin{align}
-  \mu=50\;units\label{1}
-\end{align}
-Standard deviation of $X_1$:
-\begin{align}
-   \sigma &= 10\;units\label{2}
-\end{align}
+Let $X_1$ be the normal R.V denoting daily customer demand with mean and standard deviation as follows,
+\begin{table}[htp]
+\centering
+\begin{tabular}{ |c|c|c|} 
+\hline
+parameter & value(in units) \\
+\hline
+Mean of $X_1\;(\mu)$& 50 \\
+\hline
+Standard deviation of $X_1\;(\sigma)$& 10\\
+\hline
+\end{tabular}
+\caption{mean and standard deviation of $X_1$}
+\label{table1}
+\end{table}
+
 Probability of satisfying customer is 0.95.
 
 Let Z be a standard normal R.V such that,
 \begin{align}
     Z=\frac{X_1-\mu}{\sigma} \label{3}
 \end{align}
-Using \eqref{1} and \eqref{2} in \eqref{3},
+Referring table\eqref{table1} to use in \eqref{3},
 \begin{align}
     Z=\frac{X_1-50}{10}\label{4}
 \end{align}

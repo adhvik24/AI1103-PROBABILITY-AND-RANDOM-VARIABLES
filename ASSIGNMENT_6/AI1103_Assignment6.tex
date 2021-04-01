@@ -90,6 +90,7 @@ columns=fullflexible
 \theoremstyle{remark}
 \newtheorem{rem}{Remark}
 \newcommand{\sgn}{\mathop{\mathrm{sgn}}}
+\newcommand{\comb}[2]{{}^{#1}\mathrm{C}_{#2}}
 \providecommand{\abs}[1]{\vert#1\vert}
 \providecommand{\res}[1]{\Res\displaylimits_{#1}} 
 \providecommand{\norm}[1]{\lVert#1\rVert}
@@ -134,25 +135,42 @@ The probability that a ticketless traveler is caught during a trip is 0.1. If th
 \end{inparaenum}
 
 \section{Solution}
-Let $X\in\cbrak{0,1}$ be a random variable denoting the ticketless traveller is caught or not.(1 if caught and 0 if he is safe).
+Let $X_i\in\cbrak{0,1}$ represent in the ith trip ticketless traveller is caught or not.(1 if caught and 0 if he is safe).
 
 Given,
 \begin{align}
-     \pr{X=1}&=0.1 \\
-     \pr{X=0}&=1-\pr{X=1}=0.9\label{a}
+     \pr{X_i=1}&=p=0.1 \label{a}
 \end{align}
-Then probability of being caught in atleast one trip is(Let this event be 'E'),
+Let,
 \begin{align}
-    \pr{E}&=1-\pr{being \;safe \;in \;all \;trips}\label{1}
+    X=\sum_{i=1}^n X_i
 \end{align}
-As each trip is independent of other and he/she makes 4 trips in total,
+where n is the number of trips and X has a binomial distribution.
 \begin{align}
-    \pr{being \;safe \;in \;all\;trips}&=(\pr{X=0})^4 \label{2}
+p_X(k)&=\pr{X=k}\\
+    p_X(k)&=
+    \begin{cases}
+     \comb{n}{k}\,p^K(1-p)^{n-k}, & 0\le k\le n
+     \\
+    0, & otherwise
+    \end{cases}\label{z}
 \end{align}
-Using \eqref{a} and \eqref{2} in \eqref{1},
+Then probability of being caught in atleast one trip is,
 \begin{align}
-    \pr{E}&=1-\pr{being \;safe \;in \;all \;trips}\\
-    &=1-(\pr{X=0})^4\\
+    \pr{X\ge1}&=1-\pr{X<1}\\
+    &=1-\pr{X=0}\label{1}
+\end{align}
+As he/she makes 4 trips in total, Using \eqref{a} and
+\eqref{z},
+\begin{align}
+    \pr{X=0}&=p_X(0)\\
+    &=\comb{4}{0}\,p^0(1-p)^4\\
+    \pr{X=0}&=(0.9)^4\label{2}
+\end{align}
+Using \eqref{2} in \eqref{1},
+\begin{align}
+    \pr{X\ge1}&=1-\pr{X<1}\\
+    &=1-\pr{X=0}\\
     &=1-(0.9)^4
 \end{align}
 \begin{figure}[t]

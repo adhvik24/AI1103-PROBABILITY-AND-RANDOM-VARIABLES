@@ -135,7 +135,7 @@ The probability that a ticketless traveler is caught during a trip is 0.1. If th
 \end{inparaenum}
 
 \section{Solution}
-Let $X_i\in\cbrak{0,1}$ represent in the ith trip ticketless traveller is caught or not.(1 if caught and 0 if he is safe).
+Let $X_i\in\cbrak{0,1}$ represent the ith trip where 1 denotes a ticketless traveller is caught.
 
 Given,
 \begin{align}
@@ -147,18 +147,11 @@ Let,
 \end{align}
 where n is the number of trips and X has a binomial distribution.
 \begin{align}
-p_X(k)&=\pr{X=k}\\
-    p_X(k)&=
-    \begin{cases}
+    p_X(k)&=\begin{cases}
      \comb{n}{k}\,p^K(1-p)^{n-k}, & 0\le k\le n
      \\
     0, & otherwise
     \end{cases}\label{z}
-\end{align}
-Then probability of being caught in atleast one trip is,
-\begin{align}
-    \pr{X\ge1}&=1-\pr{X<1}\\
-    &=1-\pr{X=0}\label{1}
 \end{align}
 As he/she makes 4 trips in total, Using \eqref{a} and
 \eqref{z},
@@ -167,10 +160,10 @@ As he/she makes 4 trips in total, Using \eqref{a} and
     &=\comb{4}{0}\,p^0(1-p)^4\\
     \pr{X=0}&=(0.9)^4\label{2}
 \end{align}
-Using \eqref{2} in \eqref{1},
+Then probability of being caught in atleast one trip is,(Using \eqref{2})
 \begin{align}
     \pr{X\ge1}&=1-\pr{X<1}\\
-    &=1-\pr{X=0}\\
+    &=1-\pr{X=0}\label{1}\\
     &=1-(0.9)^4
 \end{align}
 \begin{figure}[t]

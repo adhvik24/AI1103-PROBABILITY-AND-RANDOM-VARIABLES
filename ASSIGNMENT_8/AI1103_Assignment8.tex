@@ -162,7 +162,21 @@ Hazard function $\beta(x)$,(using \eqref{3} and \eqref{2})
 \end{align}
 \begin{enumerate}
     \item $\beta(x)$ is not constant for all $\alpha$
-    \item $\beta(x)=\alpha(x-\mu)^{\alpha-1}$ is an increasing function for $\alpha>1$ as given for all x, $x-\mu>0$
+    \item $\beta(x)=\alpha(x-\mu)^{\alpha-1}$ is an increasing function for $\alpha<0 \;or\; \alpha>1$ as given $x-\mu>0$ for all x.
+    
+    \textbf{Proof: }
+    Using first derivative test, A function is increasing iff its first derivative is positive for all x. 
+    \begin{align}
+        \dfrac{d}{dx} \beta(x)&=  \dfrac{d}{dx} \alpha(x-\mu)^{\alpha-1}\\
+        &= \alpha(\alpha-1)(x-\mu)^{\alpha-2}\label{0}
+    \end{align}
+    For \eqref{0} to be positive, (As given $x-\mu>0$)
+    \begin{align}
+        \alpha(\alpha-1)(x-\mu)^{\alpha-2}&>0\\
+        \alpha(\alpha-1)&>0\\
+        \implies \alpha \in \brak{-\infty,0}\cup \brak{1,\infty}
+    \end{align}
+    $\therefore \beta(x)$ an increasing function for some $\alpha$
     \item $\beta(x)$ is dependent of $\alpha$
     \item when $\alpha=1$,
 \begin{align}

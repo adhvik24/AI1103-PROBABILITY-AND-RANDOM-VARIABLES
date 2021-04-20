@@ -1,0 +1,340 @@
+\documentclass{beamer}
+\usepackage{listings}
+\lstset{
+%language=C,
+frame=single, 
+breaklines=true,
+columns=fullflexible
+}
+\usepackage{blkarray}
+\usepackage{subcaption}
+\usepackage{url}
+\usepackage{tikz}
+\usepackage{tkz-euclide} % loads  TikZ and tkz-base
+%\usetkzobj{all}
+\usetikzlibrary{calc,math}
+\usepackage{float}
+\newcommand\norm[1]{\left\lVert#1\right\rVert}
+\renewcommand{\vec}[1]{\mathbf{#1}}
+\usepackage[export]{adjustbox}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{tikz}
+\usetikzlibrary{automata, positioning}
+\usetheme{Boadilla}
+\providecommand{\pr}[1]{\ensuremath{\Pr\left(#1\right)}}
+\providecommand{\mbf}{\mathbf}
+\providecommand{\pr}[1]{\ensuremath{\Pr\left(#1\right)}}
+\providecommand{\qfunc}[1]{\ensuremath{Q\left(#1\right)}}
+\providecommand{\fn}[1]{\ensuremath{f\left(#1\right)}}
+\providecommand{\e}[1]{\ensuremath{E\left(#1\right)}}
+\providecommand{\sbrak}[1]{\ensuremath{{}\left[#1\right]}}
+\providecommand{\lsbrak}[1]{\ensuremath{{}\left[#1\right.}}
+\providecommand{\rsbrak}[1]{\ensuremath{{}\left.#1\right]}}
+\providecommand{\brak}[1]{\ensuremath{\left(#1\right)}}
+\providecommand{\lbrak}[1]{\ensuremath{\left(#1\right.}}
+\providecommand{\rbrak}[1]{\ensuremath{\left.#1\right)}}
+\providecommand{\cbrak}[1]{\ensuremath{\left\{#1\right\}}}
+\providecommand{\lcbrak}[1]{\ensuremath{\left\{#1\right.}}
+\providecommand{\rcbrak}[1]{\ensuremath{\left.#1\right\}}}
+
+\title{BASU'S THEOREM}
+\author{Adhvik Murarisetty}
+\date{AI20BTECH11015}
+\begin{document}
+
+\begin{frame}
+\titlepage
+\end{frame}
+
+\begin{frame}
+\frametitle{DEFINITIONS}
+\begin{block}{Completeness of a Statistics}
+Consider a random variable $X\sim f\brak{x,\theta}$ parametrized by $\theta$.
+
+Say T is a statistic; that is, the composition of a measurable function with a random sample $X_1,\cdots,X_n$.
+The statistic T is said to be complete for the distribution of X if, for every
+measurable function g if
+\begin{align}
+    E[g(T)]=0\;\forall\theta\implies\pr{g(T)=0}=1\;\forall\theta
+\end{align}
+\end{block}
+\begin{block}{Ancillary statistic}
+    Let X is a R.V with PDF as f(x,$\theta$), then 
+    S(X) is an ancillary statistic if its distribution does not depends on $\theta$.
+\end{block}
+\end{frame}
+
+\begin{frame}
+\frametitle{DEFINITIONS Contd..}
+\begin{block}{Sufficient statistic}
+A statistic t = T(X) is sufficient for underlying parameter $\theta$ precisely if the conditional probability distribution of the data X, given the statistic t = T(X), does not depend on the parameter $\theta$.
+
+    $\implies\; f(X|t=T(X))$ does not depends on $\theta$
+
+\begin{block}{Fisher–Neyman factorization theorem}
+    Fisher's factorization theorem provides a convenient characterization of a sufficient statistic. If the probability density function is ƒ(x), then T is sufficient for $\theta$ if and only if non negative functions g and h can be found such that
+\begin{align}
+    f(x)=h(x)\;g(T(X),\theta)
+\end{align}
+\end{block}
+\end{block}
+\end{frame}
+
+\begin{frame}
+\frametitle{THEOREM}
+\begin{block}{Basu's theorem}
+Let$ X\sim f\brak{X|\theta}$ and T=T(X) be a complete and sufficient statistics (for $\theta$) where $T\sim h\brak{t|\theta}$, and V(X) is
+ancillary, then V(X) and T(X) are independent for all $\theta$.
+\end{block}
+\textbf{Proof: }
+    Let $V\sim k\brak{V|\theta}=k\brak{V}$ because V is ancillary.
+    
+    Since T is complete, if $E[g\brak{T}]=0 \;\forall \theta$, then $g\brak{T}=0 \;\forall \theta$.
+    
+    For a fixed V such that V=v, define a function,
+    \begin{align}
+        \psi\brak{T|V=v}=k\brak{V=v}-k\brak{V=v|T}
+    \end{align}
+    Then,
+     \begin{align}
+        E[\psi\brak{T|V=v}]&= E[k\brak{V=v}-k\brak{V=v|T}]\\
+        &=E[k\brak{V=v}]-E[k\brak{V=v|T}]
+    \end{align}
+\end{frame}
+
+\begin{frame}{Proof Contd..}
+    \begin{align}
+        E[\psi\brak{T|V=v}]
+        &=E[k\brak{V=v}]-E[k\brak{V=v|T}]\\
+        &=k\brak{V=v}-\int\limits_{-\infty}^{\infty} k\brak{V=v|T}\;h\brak{t|\theta}\; dt\\
+        &=k\brak{V=v}-\int\limits_{-\infty}^{\infty} \frac{k\brak{V=v,T=t}}{h\brak{t|\theta}}\;h\brak{t|\theta}\; dt\\
+        &=k\brak{V=v}-\int\limits_{-\infty}^{\infty} {k\brak{V=v,T=t}}\; dt\\
+        &=k\brak{V=v}-k\brak{V=v}=0
+    \end{align} $\implies\psi\brak{T|V=v}=0\implies\;k\brak{V=v|T}=k\brak{V=v}$.
+    
+    $\therefore$ V(X) and T(X) are independent for all $\theta$.
+\end{frame}
+
+\begin{frame}
+\frametitle{QUESTION}
+\begin{block}{GATE 2020 (ST), Q.23 (statistics section)}
+    Let $X_1,X_2,\cdots,X_n$ be a random sample of size n $(n\ge2)$ from an exponential distribution with the probability density function
+\begin{align}
+\fn{x,\theta}=
+\begin{cases}
+e^{-(x-2\theta)}, & x>2\theta
+\\
+0, & otherwise
+\end{cases}
+\end{align}
+where $\theta\in\brak{0,\infty}$. If $X_{(1)}=min\cbrak{X_1,X_2,\cdots,X_n}$ then the conditional expectation 
+\begin{align}
+     \nonumber   E\sbrak{\frac{1}{\theta}\brak{X_{(1)}-\frac{1}{n}}|X_1-X_2=2}=\rule{1.5cm}{0.15mm}
+\end{align}
+\end{block}
+\end{frame}
+
+\begin{frame}
+\frametitle{SOLUTION}
+Given PDF of the distribution as,
+\begin{align}
+\fn{x,\theta}=
+\begin{cases}
+e^{-(x-2\theta)}, & x>2\theta
+\\
+0, & otherwise
+\end{cases}\label{2}
+\end{align}
+Then CDF of the distribution given is,
+\begin{align}
+    F(x,\theta)&=\int_{-\infty}^x \fn{x,\theta} dx\label{3}
+\end{align}
+Using \eqref{2} in \eqref{3},
+\begin{align}
+F(x,\theta)&=
+\begin{cases}
+0, & x<2\theta
+\\
+1-e^{-(x-2\theta)}, & x>2\theta
+\end{cases}\label{4}
+\end{align}
+\end{frame}
+
+\begin{frame}
+\frametitle{Solution Contd..}
+As given $X_{(1)}=min\cbrak{X_1,X_2,\cdots,X_n}$,\\
+Let us find CDF of $X_{(1)}$,
+\begin{align}
+  \nonumber  F_{X_{(1)}}(x,\theta)&=\pr{X_{(1)}\le x}\\
+  \nonumber  &=\pr{at\,least\,one\, of\, X_1,X_2,\cdots,X_n \le x}\\
+ \nonumber   &=1-\pr{X_{(1)}>x}\\
+  \nonumber  &=1-\pr{X_1>x,X_2>x,\cdots,X_n>x}\\
+  \nonumber &=1-\pr{X_1>x}\cdots \pr{X_n>x}\\
+    &=1-\brak{1-F(x,\theta)}^n\label{5}
+\end{align}
+Using \eqref{4} in \eqref{5},
+\begin{align}
+F_{X_{(1)}}(x,\theta)&=
+\begin{cases}
+0, & x<2\theta
+\\
+1-e^{-n(x-2\theta)}, & x>2\theta
+\end{cases}\label{6}
+\end{align}
+\end{frame}
+
+\begin{frame}
+\frametitle{Solution Contd..}
+Using CDF of $X_{(1)}$ to find PDF of ${X_{(1)}}$,
+\begin{align}
+    f_{X_{(1)}}(x,\theta)= \dfrac{d}{dx}\;F_{X_{(1)}}(x,\theta)\label{7}
+\end{align}
+Using \eqref{6} in \eqref{7}, PDF of $X_{(1)}$ is
+\begin{align}
+f_{X_{(1)}}{(x,\theta)}=
+\begin{cases}
+n e^{-n(x-2\theta)}, & x>2\theta
+\\
+0, & otherwise
+\end{cases}\label{8}
+\end{align}
+\end{frame}
+
+\begin{frame}
+\frametitle{Solution Contd..}
+Some results that we use in future:
+
+  $X_{(1)} $ is complete and sufficient statistic of X.
+    
+    \textbf{Proof:} 
+
+    Let $E[g(X_{(1)})]=0$,
+    \begin{align}
+        \implies\int\limits_{-\infty}^{\infty} g(x) f_{X_{(1)}}(x) dx&=0\\
+        \int\limits_{2\theta}^{\infty} g(x) n e^{-n(x-2\theta)} dx &=0\\
+        \int\limits_{2\theta}^{\infty} g(x) e^{-n(x-2\theta)} dx &=0\label{a_1}
+    \end{align}
+\end{frame}
+
+\begin{frame}
+\frametitle{Solution Contd..}
+differentiating w.r.t $\theta$ on both sides in \eqref{a_1},
+    \begin{align}
+      \nonumber  \dfrac{d}{dx} \int\limits_{2\theta}^{\infty} g(x) e^{-n(x-2\theta)} dx =0\\
+     \nonumber   \dfrac{d}{dx} \brak{\int\limits_{2\theta}^{\infty} g(x) e^{-nx} dx} e^{2n\theta} =0\\
+     \nonumber   2n e^{2n\theta}\int\limits_{2\theta}^{\infty} g(x) e^{-nx} dx+e^{2n\theta}(2)g(2\theta)e^{-2n\theta}=0\\
+     \nonumber2n(0)+2g(2\theta)=0\implies g(2\theta)=0
+    \end{align}
+    $\implies\;X_{(1)}$ is complete statistics.
+\end{frame}
+
+\begin{frame}{Solution Contd..}
+    Firstly We define a function,
+    \begin{align}
+        I{\brak{a,b}}=
+        \begin{cases}
+        1 & b>a
+        \\
+        0 & otherwise\label{a_3}
+        \end{cases}
+    \end{align}
+    Using \eqref{a_3} in \eqref{a_z}
+    \begin{align}
+        f_X(x,\theta)&=f(x_1,\theta)f(x_2,\theta)\cdots f(x_n,\theta)\\
+        &=e^{-(x_1-2\theta)}e^{-(x_2-2\theta)}\cdots e^{-(x_n-2\theta)}\\
+        &=e^{-\brak{\sum\limits_{i=1}^n x_i-2n\theta}}\;{I({2\theta,X_{(1)}})}\label{a_z}\\
+        &=\underbrace{I\brak{2\theta,X_{(1)}} }_\text{g}\times\underbrace{e^{-\brak{\sum\limits_{i=1}^n x_i-2n\theta}}}_\text{h}
+    \end{align}
+     $\therefore$ Ordered statistics of X are sufficient statistics for $\theta$.
+    
+    $\therefore\;X_{(1)}$ is complete and sufficient statistics of $\theta$. 
+\end{frame}
+
+\begin{frame}
+\frametitle{Solution Contd..}
+    $X_1-X_2$ is ancillary of $\theta$.
+    
+    \textbf{Proof: }Let U=$X_1-X_2$ then,
+    \begin{align}
+     \nonumber   F_U(x)&=\pr{X_1-X_2<x}\\
+    \nonumber
+    &=\int\limits_{-\infty}^{\infty}\pr{X_1<x+k}\pr{X_2>k} dk\\
+  \nonumber      &= \int\limits_{2\theta}^{\infty}\brak{1-e^{-\brak{x+k-2\theta}}}\brak{e^{-\brak{k-2\theta}}} dk\\
+ \nonumber &=\int\limits_{2\theta}^{\infty}e^{-\brak{k-2\theta}}-e^{-\brak{2k+x-2\theta}} dk\\
+\nonumber &= \sbrak{\frac{e^{-\brak{k-2\theta}}}{-1}-\frac{e^{-\brak{2k+x-2\theta}}}{-2}}_{2\theta}^{\infty}
+    \end{align}
+\end{frame}
+
+ \begin{frame}
+ \frametitle{Solution Contd..}
+ \begin{align}
+\nonumber  F_U(x) &=(0-0)-\brak{-1+\frac{e^{-x}}{2}}\\
+    F_U(x)&= 1-\frac{e^{-x}}{2}\\
+    \implies f_U(x)&=\dfrac{d}{dx}F_U(x)\\
+    &=\frac{e^{-x}}{2}
+    \end{align}
+    $\therefore\;U=X_1-X_2$ is an ancillary statistic of $\theta$.
+\end{frame}
+
+\begin{frame}
+ \frametitle{Solution Contd..}
+ Let U be a random variable such that $U=X_1-X_2$.
+\begin{align}
+    E\sbrak{\frac{1}{\theta}\brak{X_{(1)}-\frac{1}{n}}|X_1-X_2=2}=E\sbrak{\frac{1}{\theta}\brak{X_{(1)}-\frac{1}{n}}|U=2}\label{1}
+\end{align}
+As $X_1,X_2,\cdots,X_n$ are independent and from Basu's theorem $X_{(1)}$ and U are also independent. 
+
+As we know that if X and Y are independent then $E\sbrak{X|Y}=E\sbrak{X}$. 
+
+Using this in \eqref{1}
+\begin{align}
+ \nonumber   E\sbrak{\frac{1}{\theta}\brak{X_{(1)}-\frac{1}{n}}|U=2}
+    &=E\sbrak{\frac{1}{\theta}\brak{X_{(1)}-\frac{1}{n}}}\\
+    &=\frac{1}{\theta}\brak{E\sbrak{X_{(1)}}-\frac{1}{n}}\label{a}
+\end{align}
+\end{frame}
+
+\begin{frame}
+ \frametitle{Solution Contd..}
+ We have to find expectation of $X_{(1)}$,
+\begin{align}
+   E\sbrak{X_{(1)}}&=\int_{-\infty}^{\infty} x f_{X_{(1)}}{(x,\theta)} dx \label{9}
+\end{align}
+Using \eqref{8} in \eqref{9}.
+\begin{align}
+\nonumber E\sbrak{X_{(1)}}&=\int_{2\theta}^{\infty} n x\,e^{-(x-2\theta)n} dx\\
+  &= e^{2n\theta}\int_{2\theta}^{\infty} n x\,e^{-n x} dx \label{10}
+\end{align}
+\end{frame}
+ 
+ \begin{frame}
+ \frametitle{Solution Contd..}
+ Using integration by parts in \eqref{10},
+\begin{align}
+    \nonumber E\sbrak{X_{(1)}}
+  &= e^{2n\theta}\int_{2\theta}^{\infty}nx\,e^{-n x}dx\\
+      \nonumber &= e^{2n\theta}\brak{\sbrak{n x \frac{e^{-n x}}{-n}}_{2\theta}^{\infty}-\int_{2\theta}^{\infty} n \frac{e^{-n x}}{-n}dx}\\
+  \nonumber &= e^{2n\theta}\brak{\sbrak{n x \frac{e^{-n x}}{-n}}_{2\theta}^{\infty}+\sbrak{\frac{e^{-n x}}{-n}}_{2\theta}^{\infty}}\\
+  \nonumber &= e^{2n\theta}\brak{2\theta e^{-2n\theta}+\frac{e^{-2n\theta}}{n}}\\
+  E\sbrak{X_{(1)}} &= 2\theta+\frac{1}{n}\label{11}
+\end{align}
+ \end{frame}
+\begin{frame}{Solution Contd..}
+    Use \eqref{11} in \eqref{a},
+\begin{align}
+   \nonumber E\sbrak{\frac{1}{\theta}\brak{X_{(1)}-\frac{1}{n}}|U=2}
+    &=\frac{1}{\theta}\brak{E\sbrak{X_{(1)}}-\frac{1}{n}}\\
+   \nonumber &=\frac{1}{\theta}\brak{2\theta+\frac{1}{n}-\frac{1}{n}}\\
+   E\sbrak{\frac{1}{\theta}\brak{X_{(1)}-\frac{1}{n}}|U=2} &= 2\label{b}
+\end{align}
+Using \eqref{b} in \eqref{1},
+\begin{align}
+     \nonumber\therefore   E\sbrak{\frac{1}{\theta}\brak{X_{(1)}-\frac{1}{n}}|X_1-X_2=2}=2
+\end{align}
+\end{frame}
+\begin{frame}
+   \centering
+    \textcolor{blue}{\Huge{\textbf{THANK YOU}}}
+\end{frame}
+\end{document}

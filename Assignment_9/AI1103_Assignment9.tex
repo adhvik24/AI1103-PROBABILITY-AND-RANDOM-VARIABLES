@@ -234,14 +234,24 @@ Some results that we use in future:
     \end{align}
     $\implies\;X_{(1)}$ is complete statistics.
     
-    Using \eqref{a_2} in \eqref{a_3}
+    Firstly We define a function,
+    \begin{align}
+        I{\brak{a,b}}=
+        \begin{cases}
+        1 & b>a
+        \\
+        0 & otherwise\label{a_3}
+        \end{cases}
+    \end{align}
+    Using \eqref{a_3} in \eqref{a_z}
     \begin{align}
         f_X(x,\theta)&=f(x_1,\theta)f(x_2,\theta)\cdots f(x_n,\theta)\\
         &=e^{-(x_1-2\theta)}e^{-(x_2-2\theta)}\cdots e^{-(x_n-2\theta)}\\
-        &=e^{-\brak{\sum\limits_{i=1}^n x_i-2n\theta}}=e^{-\brak{\sum\limits_{i=1}^n x_{(i)}-2n\theta}}\label{a_3}\\
-        &=\underbrace{ \prod\limits_{j=1}^n e^{-(x_{(j)}-2\theta)}}_\text{g}\times\underbrace{\brak{1}}_\text{h}
+        &=e^{-\brak{\sum\limits_{i=1}^n x_i-2n\theta}}\;{I({2\theta,X_{(1)}})}\label{a_z}\\
+        &=\underbrace{I\brak{2\theta,X_{(1)}} }_\text{g}\times\underbrace{e^{-\brak{\sum\limits_{i=1}^n x_i-2n\theta}}}_\text{h}
     \end{align}
-    $\therefore$ Ordered statistics of X are sufficient statistics for $\theta$.
+    
+    $\therefore$ First Order statistics of X are sufficient statistics for $\theta$.
     
     $\therefore\;X_{(1)}$ is complete and sufficient statistics of $\theta$. 
     \item $X_1-X_2$ is ancillary of $\theta$.
